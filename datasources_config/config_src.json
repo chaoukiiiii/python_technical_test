@@ -1,5 +1,5 @@
 {
-    "drug":{
+    "drugs":{
        "description":"drug rows",
        "tags":{
           "env":"dev",
@@ -8,7 +8,7 @@
        "file_source":{
           "path":"input/",
           "file_name":[
-             "drug.csv"
+             "drugs.csv"
           ],
           "encoding":"utf-8",
           "type":[
@@ -58,16 +58,17 @@
        },
        "file_prepocess":{
           "columns_type":{
-             "id":"int",
+             "id":"str",
              "scientific_title":"str",
-             "data":"date",
+             "date":"date",
              "journal":"str"
           },
           "no_nansvalue":[
              "id",
              "scientific_title",
              "journal"
-          ]
+          ],
+          "rename_columns": {"scientific_title": "title"}
        }
     },
     "pubmed":{
@@ -96,7 +97,7 @@
              "journal"
           ]
        },
-       "file_prepocess":{
+       "file_preprocess":{
           "columns_type":{
              "id":"int",
              "title":"str",
