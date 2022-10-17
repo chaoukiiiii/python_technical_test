@@ -29,7 +29,11 @@
           "no_nansvalue":[
              "atccode",
              "drug"
-          ]
+          ],
+          
+          "non_emptyvalue" :["atccode",
+          "drug"]
+          
        }
     },
     "clinical_trials":{
@@ -68,6 +72,9 @@
              "scientific_title",
              "journal"
           ],
+          "non_emptyvalue" :["id",
+          "scientific_title",
+          "journal"],
           "rename_columns": {"scientific_title": "title"}
        }
     },
@@ -97,18 +104,21 @@
              "journal"
           ]
        },
-       "file_preprocess":{
+       "file_prepocess":{
           "columns_type":{
              "id":"int",
              "title":"str",
-             "data":"date",
+             "date":"date",
              "journal":"str"
           },
           "no_nansvalue":[
              "id",
              "title",
              "journal"
-          ]
+          ],
+          "non_emptyvalue" :["id",
+          "title",
+          "journal"]
        }
     }
  }

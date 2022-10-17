@@ -13,11 +13,14 @@ def clean_df(df, data_src_config: dict):
     """
     if "no_nansvalue" in data_src_config.keys():
         df = filter_nans(df, data_src_config["no_nansvalue"])
+    if "non_emptyvalue" in data_src_config.keys():
+        df = filter_emptystr(df, data_src_config["non_emptyvalue"])
     if "remove_special_char" in data_src_config.keys():
         df = remove_special_char(df, data_src_config["remove_special_char"]["columns"])
     if "columns_type" in data_src_config.keys():
         for column_name, column_type in data_src_config["columns_type"].items():
             df = cast_column(df, column_name, column_type)
+    
     if "rename_columns" in data_src_config.keys():
         for column_init_name, column_new_name in data_src_config["rename_columns"].items():
             df = rename_column(df, column_init_name, column_new_name)
@@ -50,6 +53,13 @@ def filter_nans(df, cols):
     df = df.dropna(subset=cols)
     return df
 
+def filter_emptystr(df,cols):
+    """
+    filter rows that contain empty str
+    """
+    for col in cols:
+        df=df[df[col].str.strip()!='']
+    return df
 
 def remove_special_char(df, list_columns):
     """
