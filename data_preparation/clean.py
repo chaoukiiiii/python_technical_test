@@ -6,7 +6,6 @@ import unidecode
 import os
 
 
-
 def clean_df(df, data_src_config: dict):
     """
     clean dataframe based of json config source file
@@ -20,9 +19,11 @@ def clean_df(df, data_src_config: dict):
     if "columns_type" in data_src_config.keys():
         for column_name, column_type in data_src_config["columns_type"].items():
             df = cast_column(df, column_name, column_type)
-    
+
     if "rename_columns" in data_src_config.keys():
-        for column_init_name, column_new_name in data_src_config["rename_columns"].items():
+        for column_init_name, column_new_name in data_src_config[
+            "rename_columns"
+        ].items():
             df = rename_column(df, column_init_name, column_new_name)
     return df
 
@@ -53,13 +54,15 @@ def filter_nans(df, cols):
     df = df.dropna(subset=cols)
     return df
 
-def filter_emptystr(df,cols):
+
+def filter_emptystr(df, cols):
     """
     filter rows that contain empty str
     """
     for col in cols:
-        df=df[df[col].str.strip()!='']
+        df = df[df[col].str.strip() != ""]
     return df
+
 
 def remove_special_char(df, list_columns):
     """

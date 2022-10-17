@@ -1,12 +1,10 @@
 import pandas as pd
-import os
-import shutil
+
 import json
 
 ############# config
-DATASOURCES=["drugs", "clinical_trials", "pubmed"]
+DATASOURCES = ["drugs", "clinical_trials", "pubmed"]
 ############
-
 
 
 def load_datasrc_config(path="datasources_config/config_src.json"):
@@ -15,7 +13,6 @@ def load_datasrc_config(path="datasources_config/config_src.json"):
     """
     config = load_json(path)
     return config
-
 
 
 def load_json(filepath):
@@ -27,5 +24,5 @@ def load_json(filepath):
     return res_json
 
 
-def df_tolist(df,col):
+def df_tolist(df, col):
     return [each_string.lower() for each_string in df[col].toList]
