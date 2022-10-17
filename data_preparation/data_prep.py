@@ -17,15 +17,13 @@ def data_prep_pipeline(src:str):
         path = config[src]['file_source']['path'] + config[src]['file_source']['file_name'][0]
         type_file=config[src]['file_source']['type'][0]
         df_src = load_data(path,filetype=type_file)
-        
-        print(df_src)
         df_clean = clean_df(df_src, config[src]['file_prepocess'])
         return df_clean
     elif len(config[src]['file_source']['type']) == 2:
         df_src=pd.DataFrame()
         cursor=0
         for type_file in config[src]['file_source']['type']:
-            path = config[src]['file_source']['path'] + config[src]['file_source']['file_name'][0]
+            path = config[src]['file_source']['path'] + config[src]['file_source']['file_name'][cursor]
             df_tmp=load_data(path,filetype=type_file)
             df_src=pd.concat(df_src, df_tmp)
         df_clean = clean_df(df_src, config[src]['file_prepocess'])

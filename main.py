@@ -6,10 +6,8 @@ import logging
 from utils import DATASOURCES
 
 if __name__ == "__main__":
-
-    logging.info("start load data pipeline ---------------------:-")
-    data_preparation_output = data_to_be_processed(DATASOURCES)
-
-    print(data_preparation_output)
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+    logging.info("start load and clean data pipeline ---------------------:-")
+    data_preparation_output = data_prep_pipe(DATASOURCES)
     
 
