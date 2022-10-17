@@ -3,7 +3,7 @@
 
 # Pipeline global de projet
 
-- organisation de projet:
+ organisation de projet:
 
     |── main.py
     |── datasources_config
