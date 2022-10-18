@@ -32,8 +32,8 @@ Pour exeecuter le script:
 
 le resultat se trouve dans le dossier output
 
-- **Comment gereer de grosse volumetrie**
-pandas n'est pas fait pour des volumetries importantes meme si il y a le feature pour lire les fichiers en chnuks avec low_memory usage. si on veut adresser une grosse volumetrie il nous faut un moteur de calcule distrbiué comme apache beam ou spark.. si on veut partir le fait d'utiliser beam , il y a un cout de modification mineur par rapport au modification de code vers spark.
+- **Comment gérer de grosse volumetrie**:
+pandas n'est pas fait pour des volumetries importantes meme si il y a le feature pour lire les fichiers en `chnuks` avec `low_memory` en utilisant la bibleotheque `dask`. si on veut adresser une grosse volumetrie il nous faut un moteur de calcule distrbiuer comme apache beam ou spark.. si on veut partir le fait d'utiliser beam , il y a un cout de modification mineur par rapport au modification de code vers pyspark. 
 
 - **les requetes sql sont dans le dossier sql au racine*
 
