@@ -27,6 +27,7 @@ cette structure permet de filtrer pour chaque journal , les drugs mentionnées ,
 Pour exeecuter le script:
 
 `pip install -r requirement.txt`
+
 `python ./main.py`
 
 le resultat se trouve dans le dossier output
