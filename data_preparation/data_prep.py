@@ -5,6 +5,9 @@ import pandas as pd
 
 
 def data_prep_pipe(data_src: list[str]):
+    """
+    load files and clean dataframe using dataources_config json file
+    """
     dict_df = dict()
     for src in data_src:
         output_df = data_to_be_processed(src)
